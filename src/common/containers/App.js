@@ -3,12 +3,13 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import connectApp from './../lib/connectApp';
+import App from './../components/App';
 
 import exampleAction from './../actions/example';
 
-const App = ({ example = {} }) => (<div>{JSON.stringify(example)}</div>);
+const AppContainer = props => (<App {...props} />);
 
-App.propTypes = {
+AppContainer.propTypes = {
   example: PropTypes.object,
 };
 
@@ -18,5 +19,5 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(connectApp(App, [exampleAction]));
+export default connect(mapStateToProps)(connectApp(AppContainer, [exampleAction]));
 

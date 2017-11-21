@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { application, api } from '../config.js';
 
-export default function eapi(url, token, obj, method, paramsData) {
+export default function api(url, token, obj, method, paramsData) {
   const AUTH_TOKEN =
     (token === 'null' || token === null || token === undefined) ? '' : token;
   const baseURL =

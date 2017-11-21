@@ -11,10 +11,9 @@ export default function connectApp(Container, actionCreators = []) {
       dispatch,
       params = {},
       query = {},
-      clientInfo = {},
     }) {
       return axios.all(
-        actionCreators.map(actionCreator => dispatch(actionCreator({ params, query, clientInfo }))),
+        actionCreators.map(actionCreator => dispatch(actionCreator({ params, query }))),
       );
     }
 
