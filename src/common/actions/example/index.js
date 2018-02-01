@@ -5,7 +5,6 @@ const exampleActionType = () => ({
 });
 
 export default function exampleAction() {
-  console.log('aqui');
   return dispatch => dispatch(exampleActionType());
 }
 
