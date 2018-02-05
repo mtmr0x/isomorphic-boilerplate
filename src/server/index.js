@@ -4,8 +4,6 @@ import dotenv from 'dotenv';
 import WebpackIsomorphicTools from 'webpack-isomorphic-tools';
 
 import WebpackIsomorphicToolsConfig from './../../webpack/webpack-isomorphic-tools';
-import * as clientConfig from '../common/config.js';
-import * as serverConfig from './config.js';
 
 import routes from './routes';
 import log from './logs';
@@ -27,14 +25,15 @@ app.use(express.static('public'));
 
 app.use('/fonts', express.static('public/fonts'));
 
-app.use(routes);
+const PORT = process.env.APPLICATION_PORT;
 
-const PORT = clientConfig.application.port;
-
-const server = app.listen(PORT, () => {
-  log.info(`L I S T E N I N G  A T: ${PORT}`);
-});
+//const server = app.listen(PORT, () => {
+//  log.info(`L I S T E N I N G  A T: ${PORT}`);
+//});
 
 global.webpackIsomorphicTools = new WebpackIsomorphicTools(WebpackIsomorphicToolsConfig)
-  .server(rootDir, () => server);
+  .server(rootDir, () => {
+    app.use(routes);
+    app.listen(PORT, () => log.info(`L I S T E N I G  A T: ${PORT}`))
+  });
 

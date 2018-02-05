@@ -1,9 +1,3 @@
-import fs from 'fs';
-import { env } from '../../config.js';
-
-const production = (env === 'production');
-const development = (env === 'development');
-
 function javascripts(assets = {}) {
   const js = assets.javascript || {};
   const mainJS = js.main || '';

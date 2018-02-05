@@ -15,11 +15,12 @@ import routes from './../../common/routes';
 import fetchComponentsData from './../_utils/http-utils';
 import rootReducer from './../../common/reducers';
 
-export default function appRouting(req, res) {
+export default function serverRouting(req, res) {
   if (__DEVELOPMENT__) {
     // Do not cache webpack stats: the script file would change since
     // hot module replacement is enabled in the development env
     webpackIsomorphicTools.refresh();
+    console.log(webpackIsomorphicTools.refresh);
   }
 
   const context = {};

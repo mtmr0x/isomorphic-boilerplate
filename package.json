@@ -115,7 +115,7 @@
     "sudo": "1.0.3",
     "ua-parser-js": "0.7.14",
     "webpack": "3.8.1",
-    "webpack-isomorphic-tools": "3.0.0",
+    "webpack-isomorphic-tools": "3.0.5",
     "winston": "2.3.1"
   },
   "devDependencies": {
@@ -132,7 +132,7 @@
     "react-transform-catch-errors": "1.0.2",
     "react-transform-hmr": "1.0.4",
     "redbox-react": "1.5.0",
-    "webpack-dev-middleware": "1.12.0",
-    "webpack-hot-middleware": "2.18.2"
+    "webpack-dev-middleware": "2.0.4",
+    "webpack-hot-middleware": "2.21.0"
   }
 }

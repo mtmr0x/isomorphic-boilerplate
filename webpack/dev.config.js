@@ -33,29 +33,6 @@ delete babelLoaderQuery.env;
 
 // make sure react-transform is enabled
 babelLoaderQuery.plugins = babelLoaderQuery.plugins || [];
-let reactTransform = null;
-for (let i = 0; i < babelLoaderQuery.plugins.length; ++i) {
-  const plugin = babelLoaderQuery.plugins[i];
-  if (Array.isArray(plugin) && plugin[0] === 'react-transform') {
-    reactTransform = plugin;
-  }
-}
-
-if (!reactTransform) {
-  reactTransform = ['react-transform', {transforms: []}];
-  babelLoaderQuery.plugins.push(reactTransform);
-}
-
-if (!reactTransform[1] || !reactTransform[1].transforms) {
-  reactTransform[1] = Object.assign({}, reactTransform[1], {transforms: []});
-}
-
-// make sure react-transform-hmr is enabled
-reactTransform[1].transforms.push({
-  transform: 'react-transform-hmr',
-  imports: ['react'],
-  locals: ['module']
-});
 
 module.exports = {
   devtool: 'inline-source-map',
@@ -66,6 +43,9 @@ module.exports = {
       'webpack/hot/only-dev-server',
       './src/client/index.js',
     ]
+  },
+  devServer: {
+    hot: true
   },
   output: {
     path: assetsPath,
